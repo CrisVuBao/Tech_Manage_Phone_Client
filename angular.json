@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/plugins.min.css",
               "src/assets/css/kaiadmin.min.css",
               "src/assets/css/fonts.min.css",
@@ -32,6 +33,7 @@
               "src/styles.css"
             ],
             "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "src/assets/js/core/jquery-3.7.1.min.js",
               "src/assets/js/core/popper.min.js",
               "src/assets/js/core/bootstrap.min.js",

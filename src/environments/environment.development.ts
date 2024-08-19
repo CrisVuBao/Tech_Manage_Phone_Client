@@ -1,3 +1,3 @@
 export const environment = {
-    apiBaseUrl: 'https://localhost:7160' // cài đặt url cơ sở
+    apiBaseUrl: 'https://localhost:7141' // cài đặt url cơ sở
 };

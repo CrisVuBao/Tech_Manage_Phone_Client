@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { MemberRequest } from '../models/add-member-request.model';
+import { MemberRequest } from '../../shared/models/add-member-request.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Member } from '../models/member.model';
-import { environment } from '../../../../environments/environment.development';
+import { Member } from '../../shared/models/member.model';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'

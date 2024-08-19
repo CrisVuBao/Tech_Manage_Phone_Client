@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Todo } from "../models/todo.model";
-import { environment } from "../../../../environments/environment.development";
 import { Observable } from "rxjs";
+import { Todo } from "../../shared/models/todo.model";
+import { environment } from "../../../environments/environment.development";
 
 @Injectable(
     {
