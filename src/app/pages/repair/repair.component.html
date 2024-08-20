@@ -47,7 +47,7 @@
                                     <th>Tên khách hàng</th>
                                     <th>Ngày nhận</th>
                                     <th>Trạng thái</th>
-                                    <th style="width: 10%">Action</th>
+                                    <th style="width: 10%">Chức năng</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -64,7 +64,7 @@
                                     <td>{{repairList.deviceName}}</td>
                                     <td>{{repairList.errorCondition}}</td>
                                     <td>{{repairList.customer.name}}</td>
-                                    <td>{{repairList.creationDate | date: 'YYYY-MM-dd | HH:mm'}}</td>
+                                    <td>{{repairList.creationDate | date: 'YYYY-MM-dd | HHg:mmp'}}</td>
                                     <td>
                                         <button class="btn btn-success">{{repairList.status}}</button>
                                     </td>
