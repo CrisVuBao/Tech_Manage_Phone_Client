@@ -16,4 +16,8 @@ export class RepairService {
     getAllRepair() : Observable<Repair[]> {
         return  this.http.get<Repair[]>(`${environment.apiBaseUrl}/api/GetAllRepair`)
     }
+
+    addRepair(model: Repair) : Observable<void> {
+        return this.http.post<void>(`${environment.apiBaseUrl}/api/CreateRepair`,model)
+    }
 }

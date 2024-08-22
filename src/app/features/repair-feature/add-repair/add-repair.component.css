@@ -1,0 +1,16 @@
+.input-date {
+    border:  #e5e5e5;
+    border-radius: 5px;
+}
+
+.custom-confirm-btn {
+    background-color: #31ce36; /* Màu nền nút OK */
+    color: #fff; /* Màu chữ nút OK */
+    border: none;
+}
+
+.swal2-confirm {
+    background-color: #31ce36; /* Màu nền nút OK */
+    color: #fff; /* Màu chữ nút OK */
+    border: none;
+  }

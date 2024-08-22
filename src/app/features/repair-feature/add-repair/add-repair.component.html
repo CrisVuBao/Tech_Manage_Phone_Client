@@ -14,43 +14,100 @@
                 <p class="small">
                     Tạo phiếu sửa chữa
                 </p>
-                <form>
+                <form (ngSubmit)="onSubmitAddRepair()">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
-                                <label>Tên thiết bị</label>
-                                <input id="addName" type="text" class="form-control" placeholder="Vd: Samsung S23" />
+                                <label class="fw-bold">Tên thiết bị</label>
+                                <input id="addName" type="text" class="form-control" placeholder="Vd: Samsung S23"
+                                    name="deviceName" [(ngModel)]="model.deviceName" />
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Tình trạng lỗi</label>
-                                <input id="addPosition" type="text" class="form-control" placeholder="Vd: hỏng màn" />
+                                <input id="addPosition" type="text" class="form-control" placeholder="Vd: hỏng màn"
+                                    name="errorCondition" [(ngModel)]="model.errorCondition" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-default">
                                 <label>Hình khi nhận máy</label>
-                                <input id="addOffice" type="text" class="form-control" placeholder="hình ảnh" />
+                                <input id="addOffice" type="text" class="form-control" placeholder="hình ảnh"
+                                    name="imageUrl" [(ngModel)]="model.imageUrl" />
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-default">
                                 <label>Thời gian nhận</label>
-                                <input class="input-full" type="datetime-local" id="datetime-input" name="birthdaytime">
+                                <input class="input-date" type="datetime" id="datetime-input" name="birthdaytime"
+                                    [ngModel]="model.creationDate | date: 'dd-MM-yyy | HHg:mmp'"
+                                    (ngModelChange)="model.creationDate = $event">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                                <label>Tên khách hàng</label>
+                                <input id="addOffice" type="text" class="form-control" placeholder="Vd: Nguyễn A"
+                                    name="customerName" [(ngModel)]="model.customer.name" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                                <label>Số điện thoại</label>
+                                <input id="addOffice" type="text" class="form-control" placeholder="Vd: 0368686868"
+                                    name="phoneNumber" [(ngModel)]="model.customer.phoneNumber" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="ps-2">Cho mượn máy</label><br />
+                            <div class="d-flex">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1" [(ngModel)]="model.lend" [value]="true" />
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Có
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault2" checked [(ngModel)]="model.lend" [value]="false" />
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Không
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Thành tiền</label>
+                            <div class="input-group mb-3">
+                                <!-- <span class="input-group-text">VNĐ</span> -->
+                                <input type="number" id="currency-input" class="form-control"
+                                    aria-label="Amount (to the nearest dollar)" name="totalAmount"
+                                    [(ngModel)]="model.totalAmount" />
+                                <span class="input-group-text">VNĐ</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
+                                <label class="fw-bold">Ghi chú thêm</label>
+                                <input id="addName" type="text" class="form-control" placeholder="Vd: có sim"
+                                    name="deviceName" [(ngModel)]="model.note" />
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer border-0">
+                        <button type="submit" id="addRowButton" class="btn btn-primary">
+                            Thêm
+                        </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closeCollapse()">
+                            Hủy
+                        </button>
+                    </div>
                 </form>
             </div>
-            <div class="modal-footer border-0">
-                <button type="button" id="addRowButton" class="btn btn-primary">
-                    Add
-                </button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closeCollapse()">
-                    Close
-                </button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -66,4 +123,16 @@
 
     const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
     document.getElementById('datetime-input').value = currentDateTime;
+
+    document.getElementById('currency-input').addEventListener('input', function (e) {
+        // Lấy giá trị của input và loại bỏ tất cả ký tự không phải số
+        let value = e.target.value.replace(/\D/g, '');
+
+        // Chuyển số thành định dạng có dấu chấm phân cách hàng nghìn
+        value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Gán lại giá trị cho input
+        e.target.value = value;
+    });
+
 </script>

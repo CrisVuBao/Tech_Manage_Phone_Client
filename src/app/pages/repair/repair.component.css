@@ -1,3 +1,12 @@
 .repair-layout {
   margin-top: 70px;
 }
+
+.font {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.btn-cus {
+  width: 100px !important;
+  font-size: 12px;
+}

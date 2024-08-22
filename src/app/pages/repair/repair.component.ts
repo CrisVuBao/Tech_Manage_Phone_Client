@@ -5,6 +5,7 @@ import { Repair } from '../../shared/models/repair.model';
 import { RepairService } from '../../core/services/repair.service';
 import { CommonModule } from '@angular/common';
 import { AddRepairComponent } from "../../features/repair-feature/add-repair/add-repair.component";
+import { PipeStatus } from '../../core/pipes/pipe-status/pipe-status.component';
 
 @Component({
   selector: 'app-repair',

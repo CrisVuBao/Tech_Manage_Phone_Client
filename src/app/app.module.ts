@@ -10,13 +10,17 @@ import { AppRoutingModule } from './app.routes';
 import { RouterLink, RouterModule } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RepairComponent } from './pages/repair/repair.component';
+import { AddRepairComponent } from './features/repair-feature/add-repair/add-repair.component';
+import { PipeStatus } from './core/pipes/pipe-status/pipe-status.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
         HomePageComponent,
-        RepairComponent
+        RepairComponent,
+        AddRepairComponent,
+        PipeStatus
     ],
     imports: [
         NgModule,
