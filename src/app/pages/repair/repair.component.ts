@@ -6,11 +6,10 @@ import { RepairService } from '../../core/services/repair.service';
 import { CommonModule } from '@angular/common';
 import { AddRepairComponent } from "../../features/repair-feature/add-repair/add-repair.component";
 import { PipeStatus } from '../../core/pipes/pipe-status/pipe-status.component';
+import { EditRepairComponent } from "../../features/repair-feature/edit-repair/edit-repair.component";
 
 @Component({
   selector: 'app-repair',
-  standalone: true,
-  imports: [RouterLink, CommonModule, AddRepairComponent],
   templateUrl: './repair.component.html',
   styleUrl: './repair.component.css'
 })

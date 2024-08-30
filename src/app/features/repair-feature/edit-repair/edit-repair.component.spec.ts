@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PipeStatusComponent } from './pipe-status.component';
+import { EditRepairComponent } from './edit-repair.component';
 
-describe('PipeStatusComponent', () => {
-  let component: PipeStatusComponent;
-  let fixture: ComponentFixture<PipeStatusComponent>;
+describe('EditRepairComponent', () => {
+  let component: EditRepairComponent;
+  let fixture: ComponentFixture<EditRepairComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PipeStatusComponent]
+      imports: [EditRepairComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PipeStatusComponent);
+    fixture = TestBed.createComponent(EditRepairComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

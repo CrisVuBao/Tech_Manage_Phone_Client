@@ -1,11 +1,11 @@
 import { Component, Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'pipeStatus'
+  name: 'pipestas'
 })
 
 export class PipeStatus implements PipeTransform {
-  transform(value: string): string {
+  transform(value: unknown): any {
     if (value === 'RECEIVED') {
       return 'Đã xong';
     }

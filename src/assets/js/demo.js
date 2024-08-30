@@ -191,8 +191,8 @@ Circles.create({
 
 //Notify
 $.notify({
-	icon: 'icon-bell',
-	title: 'Quốc Hùng',
+	icon: 'icon-user',
+	title: 'ADMIN',
 	message: 'Chào mừng đến với trang quản trị',
 }, {
 	type: 'secondary',

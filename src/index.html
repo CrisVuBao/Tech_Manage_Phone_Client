@@ -108,18 +108,6 @@
       lineColor: "#ffa534",
       fillColor: "rgba(255, 165, 52, .14)",
     });
-
-    document.getElementById('currency-input').addEventListener('input', function (e) {
-      // Lấy giá trị của input và loại bỏ tất cả ký tự không phải số
-      let value = e.target.value.replace(/\D/g, '');
-
-      // Chuyển số thành định dạng có dấu chấm phân cách hàng nghìn
-      value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
-      // Gán lại giá trị cho input
-      e.target.value = value;
-    });
-
   </script>
 </body>
 

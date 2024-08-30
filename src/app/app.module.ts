@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,11 +7,13 @@ import { CommonModule, NgFor } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { AppRoutingModule } from './app.routes';
-import { RouterLink, RouterModule } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RepairComponent } from './pages/repair/repair.component';
 import { AddRepairComponent } from './features/repair-feature/add-repair/add-repair.component';
 import { PipeStatus } from './core/pipes/pipe-status/pipe-status.component';
+import { SidebarComponent } from './core/components/sidebar/sidebar.component';
+import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-repair.component';
 
 @NgModule({
     declarations: [
@@ -20,18 +22,20 @@ import { PipeStatus } from './core/pipes/pipe-status/pipe-status.component';
         HomePageComponent,
         RepairComponent,
         AddRepairComponent,
-        PipeStatus
+        EditRepairComponent,
+        PipeStatus,
+        SidebarComponent
+
     ],
     imports: [
-        NgModule,
+        BrowserModule,
+        AppRoutingModule,
         FormsModule,
         CommonModule,
         HttpClientModule,
-        AppRoutingModule,
-        RouterLink,
-        RouterModule
+        RouterModule.forRoot([]),
     ],
-    providers: [],
+    providers: [PipeStatus],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

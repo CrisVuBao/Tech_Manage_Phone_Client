@@ -32,22 +32,24 @@
                             <i class="fa fa-plus"></i>
                             Thêm Sửa
                         </button>
+
                     </div>
                 </div>
                 <div class="card-body">
-                    <!-- Modal -->
+                    <!-- Modal hiển thị form-->
                     <app-add-repair></app-add-repair>
+                    <app-edit-repair></app-edit-repair>
 
                     <div class="table-responsive">
-                        <table id="add-row" class="display table table-striped">
+                        <table id="add-row" class="display table table-striped table-head-bg-primary">
                             <thead class="font">
                                 <tr>
                                     <th>Tên thiết bị</th>
                                     <th>Tình trạng lỗi</th>
                                     <th>Tên khách hàng</th>
-                                    <th>Ngày nhận</th>
+                                    <th>Ngày nhận máy</th>
                                     <th>Trạng thái</th>
-                                    <th style="width: 10%">Chức năng</th>
+                                    <th>Chức năng nè</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -55,7 +57,7 @@
                                     <th>Tên thiết bị</th>
                                     <th>Tình trạng lỗi</th>
                                     <th>Tên khách hàng</th>
-                                    <th>Ngày nhận </th>
+                                    <th>Ngày nhận máy</th>
                                     <th>Trạng thái</th>
                                 </tr>
                             </tfoot>
@@ -66,16 +68,18 @@
                                     <td>{{repairList.customer.name}}</td>
                                     <td>{{repairList.creationDate | date: 'dd-MM-yyy | HHg:mmp'}}</td>
                                     <td>
-                                        <button class="btn-cus btn btn-success w-100">{{repairList.status}}</button>
+                                        <button class="btn-cus btn btn-warning w-100">{{repairList.status |
+                                            pipestas}}</button>
                                     </td>
                                     <td>
                                         <div class="form-button-action">
-                                            <button type="button" data-bs-toggle="tooltip" title=""
-                                                class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                                            <button type="button" data-bs-toggle="tooltip" title="Sửa phiếu"
+                                                class="btn btn-link btn-warning btn-lg" data-original-title="Edit Task"
+                                                data-bs-toggle="modal" data-bs-target="#editRowModal">
                                                 <!-- <i class="fa fa-edit"></i> -->
-                                                <i class="far fa-address-card h5"></i>
+                                                <i class="fas fa-edit h5"></i>
                                             </button>
-                                            <button type="button" data-bs-toggle="tooltip" title=""
+                                            <button type="button" data-bs-toggle="tooltip" title="Xóa phiếu"
                                                 class="btn btn-link btn-danger" data-original-title="Remove">
                                                 <i class="fas fa-trash h5"></i>
                                             </button>
