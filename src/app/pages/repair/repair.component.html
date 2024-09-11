@@ -4,7 +4,7 @@
             <h3 class="fw-bold">Sửa chữa vi vu</h3>
             <ul class="breadcrumbs">
                 <li class="nav-home">
-                    <a href="#">
+                    <a href="#" title="home">
                         <i class="icon-home"></i>
                     </a>
                 </li>
@@ -68,14 +68,18 @@
                                     <td>{{repairList.customer.name}}</td>
                                     <td>{{repairList.creationDate | date: 'dd-MM-yyy | HHg:mmp'}}</td>
                                     <td>
-                                        <button class="btn-cus btn btn-warning w-100">{{repairList.status |
-                                            pipestas}}</button>
+                                        <button class="btn-cus btn"
+                                            [ngClass]="{'btn-warning': repairList.status === 'PROGRESS', 'btn-success': repairList.status === 'COMPLETED' ? 'ĐÃ XONG' : repairList.status}"
+                                            (click)="repairList.status === 'PROGRESS' && changeStatusToCompleted(repairList)">
+                                            {{ repairList.status === 'PROGRESS' ? 'ĐANG SỬA' : repairList.status }}
+                                        </button>
                                     </td>
                                     <td>
                                         <div class="form-button-action">
                                             <button type="button" data-bs-toggle="tooltip" title="Sửa phiếu"
                                                 class="btn btn-link btn-warning btn-lg" data-original-title="Edit Task"
-                                                data-bs-toggle="modal" data-bs-target="#editRowModal">
+                                                data-bs-toggle="modal" data-bs-target="#editRowModal"
+                                                (click)="openEditModal(repairList.repairId)">
                                                 <!-- <i class="fa fa-edit"></i> -->
                                                 <i class="fas fa-edit h5"></i>
                                             </button>

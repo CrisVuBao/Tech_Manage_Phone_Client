@@ -22,7 +22,8 @@
 }
 
 .no-spinner {
--moz-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield; /* Added to support modern browsers */
 }
 
 .color-title-pri  {

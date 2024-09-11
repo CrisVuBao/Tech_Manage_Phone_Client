@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RepairService } from '../../../core/services/repair.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-repair',
@@ -14,7 +15,7 @@ export class AddRepairComponent{
 
   model: Repair;
 
-  constructor(private repairService: RepairService) {
+  constructor(private repairService: RepairService, private router: Router) {
     this.model = {
       repairId: 0,
       deviceName: "",

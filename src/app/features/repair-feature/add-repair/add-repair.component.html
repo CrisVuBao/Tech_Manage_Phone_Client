@@ -40,7 +40,7 @@
                             <div class="form-group form-group-default">
                                 <h6 class="fw-extrabold">Thời gian nhận</h6>
                                 <input class="input-date" type="datetime" id="datetime-input" name="birthdaytime"
-                                    [ngModel]="model.creationDate | date: 'dd-MM-yyy | HHg:mmp'"
+                                    [ngModel]="model.creationDate | date:'dd-MM-yyy | HHg:mmp'"
                                     (ngModelChange)="model.creationDate = $event">
                             </div>
                         </div>
