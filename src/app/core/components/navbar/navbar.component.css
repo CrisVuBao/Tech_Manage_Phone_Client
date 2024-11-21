@@ -1,3 +1,7 @@
 .text-home {
   color: red;
 }
+
+.font-cus-auth {
+  font-size: 15px !important;
+}

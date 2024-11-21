@@ -14,6 +14,9 @@ import { AddRepairComponent } from './features/repair-feature/add-repair/add-rep
 import { PipeStatus } from './core/pipes/pipe-status/pipe-status.component';
 import { SidebarComponent } from './core/components/sidebar/sidebar.component';
 import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-repair.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
+import { AuthModule } from './pages/auth/auth.module';
 
 @NgModule({
     declarations: [
@@ -24,7 +27,9 @@ import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-
         AddRepairComponent,
         EditRepairComponent,
         PipeStatus,
-        SidebarComponent
+        SidebarComponent,
+        AuthLayoutComponent,
+        DashboardLayoutComponent
 
     ],
     imports: [
@@ -33,6 +38,7 @@ import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-
         FormsModule,
         CommonModule,
         HttpClientModule,
+        AuthModule,
         RouterModule.forRoot([]),
     ],
     providers: [PipeStatus],

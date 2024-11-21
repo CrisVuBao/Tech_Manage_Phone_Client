@@ -64,14 +64,14 @@
                             <div class="d-flex">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1" [value]="true" />
+                                        id="flexRadioDefault1" [value]="true" [checked]="repair?.lend === true" />
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Có
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked />
+                                        id="flexRadioDefault2" [value]="false" [checked]="repair?.lend === false" />
                                     <label class="form-check-label" for="flexRadioDefault2">
                                         Không
                                     </label>
@@ -83,8 +83,9 @@
                             <h6 class="fw-extrabold">Thành tiền</h6>
                             <div class="input-group mb-3">
                                 <!-- <span class="input-group-text">VNĐ</span> -->
-                                <input type="number" id="currency-input" class="form-control no-spinner"
-                                    aria-label="Amount (to the nearest dollar)" name="totalAmount" />
+                                <input type="text" id="currency-input" class="form-control no-spinner"
+                                    aria-label="Amount (to the nearest dollar)" name="totalAmount"
+                                    [value]="repair?.totalAmount | number:'1.0-0'" />
                                 <span class="input-group-text">VNĐ</span>
                             </div>
                         </div>
@@ -97,7 +98,7 @@
                         </div>
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="submit" id="addRowButton" class="btn btn-warning">
+                        <button type="submit" id="addRowButton" class="btn btn-warning" (click)="onFormSubmit()">
                             Sửa
                         </button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
@@ -107,7 +108,6 @@
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

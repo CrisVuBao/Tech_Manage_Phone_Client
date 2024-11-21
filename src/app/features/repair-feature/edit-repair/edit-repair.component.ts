@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Repair } from '../../../shared/models/repair.model';
 import { RepairService } from '../../../core/services/repair.service';
+import { RepairComponent } from '../../../pages/repair/repair.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-repair',
@@ -31,5 +33,29 @@ export class EditRepairComponent implements OnInit {
       this.repair = data;
       console.log(this.repair);
     });
+  }
+
+  onFormSubmit(): void {
+    if(this.repairId && this.repair) {
+      this.repairService.updateRepairStatus(this.repairId, this.repair)
+      .subscribe({
+        next: (res) => {
+          // Khi submit thành công
+          Swal.fire({
+            title: 'Thành công!',
+            text: 'Sửa phiếu thành công.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            customClass: {
+              confirmButton: 'btn btn-success'
+            }
+          });
+          setTimeout(() => {
+            window.location.reload();
+            console.log("Thêm thành công");
+          },1000)
+        }
+      });
+    }
   }
 }

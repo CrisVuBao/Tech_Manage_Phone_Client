@@ -40,7 +40,7 @@
                     <app-add-repair></app-add-repair>
                     <app-edit-repair></app-edit-repair>
 
-                    <div class="table-responsive">
+                    <div class="table-responsive rounded-3">
                         <table id="add-row" class="display table table-striped table-head-bg-primary">
                             <thead class="font">
                                 <tr>
@@ -62,7 +62,7 @@
                                 </tr>
                             </tfoot>
                             <tbody *ngIf="repair$ | async as repair">
-                                <tr *ngFor="let repairList of repair$ | async as repair">
+                                <tr *ngFor="let repairList of repair$ | async as repair" class="rounded-3">
                                     <td>{{repairList.deviceName}}</td>
                                     <td>{{repairList.errorCondition}}</td>
                                     <td>{{repairList.customer.name}}</td>
