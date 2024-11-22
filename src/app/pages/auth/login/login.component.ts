@@ -26,9 +26,26 @@ export class LoginComponent {
         this.cookieService.set('Authorization', `Bearer ${res.token}`,
         undefined,'/', undefined, true, 'Strict');
 
+       // Set User
+       this.authService.setUser({
+          fullName: res.fullName,
+          email: res.email,
+          roles: res.roles
+       });
+
+      // Điều hướng dựa trên vai trò
+      if (res.roles.includes('Admin')) {
+        this.router.navigate(['/admin/home']);
+      } else if (res.roles.includes('Member')) {
+        this.router.navigate(['/trang-chu-khach-hang']);
+      } else {
+        this.router.navigate(['/login']); // Quay lại trang đăng nhập nếu vai trò không xác định
+      }
         // Redirect back to Page
         this.router.navigateByUrl('/');
-      }
+      },
     })
+
+
   }
 }

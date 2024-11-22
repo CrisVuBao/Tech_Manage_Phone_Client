@@ -17,6 +17,9 @@ import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { AuthModule } from './pages/auth/auth.module';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +32,8 @@ import { AuthModule } from './pages/auth/auth.module';
         PipeStatus,
         SidebarComponent,
         AuthLayoutComponent,
-        DashboardLayoutComponent
+        DashboardLayoutComponent,
+        CustomerPageComponent
 
     ],
     imports: [
@@ -40,6 +44,8 @@ import { AuthModule } from './pages/auth/auth.module';
         HttpClientModule,
         AuthModule,
         RouterModule.forRoot([]),
+        LoadingBarRouterModule,
+        LoadingBarModule
     ],
     providers: [PipeStatus],
     bootstrap: [AppComponent]

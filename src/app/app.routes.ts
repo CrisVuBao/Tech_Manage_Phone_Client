@@ -7,6 +7,7 @@ import { EditRepairComponent } from './features/repair-feature/edit-repair/edit-
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 
 export const routes: Routes = [
 
@@ -17,20 +18,24 @@ export const routes: Routes = [
       children: [
         {
           path: '',
-          redirectTo: '/home',
+          redirectTo: '/trang-chu-khach-hang',
           pathMatch: 'full'
         },
         {
-          path: 'dashboard',
+          path: 'admin/home',
           loadChildren: () => import('./pages/home-page/home-page.module').then(m => m.HomePageModule)
         },
         {
-          path: 'home',
+          path: 'admin/home',
           component: HomePageComponent
         },
         {
-          path: 'sua-chua',
+          path: 'admin/sua-chua',
           component: RepairComponent
+        },
+        {
+          path: 'trang-chu-khach-hang',
+          component: CustomerPageComponent
         }
       ]
     },
