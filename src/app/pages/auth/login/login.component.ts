@@ -3,6 +3,7 @@ import { LoginRequest } from '../../../shared/models/login/login-request.model';
 import { AuthService } from '../../../core/services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,16 @@ export class LoginComponent {
           email: res.email,
           roles: res.roles
        });
-
+        // Khi submit thành công
+        Swal.fire({
+        title: 'Thành công!',
+        text: 'Đăng nhập thành công.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        customClass: {
+          confirmButton: 'btn btn-success'
+        }
+      });
       // Điều hướng dựa trên vai trò
       if (res.roles.includes('Admin')) {
         this.router.navigate(['/admin/home']);
@@ -43,7 +53,7 @@ export class LoginComponent {
       }
         // Redirect back to Page
         this.router.navigateByUrl('/');
-      },
+      }
     })
 
 

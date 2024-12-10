@@ -1,101 +1,107 @@
 <div class="repair-layout container">
-    <div class="page-inner">
-        <div class="page-header">
-            <h3 class="fw-bold">Sửa chữa vi vu</h3>
-            <ul class="breadcrumbs">
-                <li class="nav-home">
-                    <a href="#" title="home">
-                        <i class="icon-home"></i>
-                    </a>
-                </li>
-                <li class="separator">
-                    <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                    <a href="#" [routerLink]="['/sua-chua']">Làm việc</a>
-                </li>
-                <li class="separator">
-                    <i class="icon-arrow-right"></i>
-                </li>
-                <li class="nav-item">
-                    <a href="#" [routerLink]="['/sua-chua']">Sửa chữa</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="d-flex align-items-center">
-                        <h4 class="card-title">Danh sách sửa chữa</h4>
-                        <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal"
-                            data-bs-target="#addRowModal">
-                            <i class="fa fa-plus"></i>
-                            Thêm Sửa
-                        </button>
-
-                    </div>
-                </div>
-                <div class="card-body">
-                    <!-- Modal hiển thị form-->
-                    <app-add-repair></app-add-repair>
-                    <app-edit-repair></app-edit-repair>
-
-                    <div class="table-responsive rounded-3">
-                        <table id="add-row" class="display table table-striped table-head-bg-primary">
-                            <thead class="font">
-                                <tr>
-                                    <th>Tên thiết bị</th>
-                                    <th>Tình trạng lỗi</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Ngày nhận máy</th>
-                                    <th>Trạng thái</th>
-                                    <th>Chức năng nè</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Tên thiết bị</th>
-                                    <th>Tình trạng lỗi</th>
-                                    <th>Tên khách hàng</th>
-                                    <th>Ngày nhận máy</th>
-                                    <th>Trạng thái</th>
-                                </tr>
-                            </tfoot>
-                            <tbody *ngIf="repair$ | async as repair">
-                                <tr *ngFor="let repairList of repair$ | async as repair" class="rounded-3">
-                                    <td>{{repairList.deviceName}}</td>
-                                    <td>{{repairList.errorCondition}}</td>
-                                    <td>{{repairList.customer.name}}</td>
-                                    <td>{{repairList.creationDate | date: 'dd-MM-yyy | HHg:mmp'}}</td>
-                                    <td>
-                                        <button class="btn-cus btn"
-                                            [ngClass]="{'btn-warning': repairList.status === 'PROGRESS', 'btn-success': repairList.status === 'COMPLETED' ? 'ĐÃ XONG' : repairList.status}"
-                                            (click)="repairList.status === 'PROGRESS' && changeStatusToCompleted(repairList)">
-                                            {{ repairList.status === 'PROGRESS' ? 'ĐANG SỬA' : repairList.status }}
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <div class="form-button-action">
-                                            <button type="button" data-bs-toggle="tooltip" title="Sửa phiếu"
-                                                class="btn btn-link btn-warning btn-lg" data-original-title="Edit Task"
-                                                data-bs-toggle="modal" data-bs-target="#editRowModal"
-                                                (click)="openEditModal(repairList.repairId)">
-                                                <!-- <i class="fa fa-edit"></i> -->
-                                                <i class="fas fa-edit h5"></i>
-                                            </button>
-                                            <button type="button" data-bs-toggle="tooltip" title="Xóa phiếu"
-                                                class="btn btn-link btn-danger" data-original-title="Remove">
-                                                <i class="fas fa-trash h5"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold">Sửa chữa vi vu</h3>
+      <ul class="breadcrumbs">
+        <li class="nav-home">
+          <a href="#" title="home">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#" [routerLink]="['/sua-chua']">Làm việc</a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#" [routerLink]="['/sua-chua']">Sửa chữa</a>
+        </li>
+      </ul>
     </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex align-items-center">
+            <h4 class="card-title">Danh sách sửa chữa</h4>
+            <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal" data-bs-target="#addRowModal">
+              <i class="fa fa-plus"></i>
+              Thêm Sửa
+            </button>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Modal hiển thị form-->
+          <app-add-repair></app-add-repair>
+          <app-edit-repair></app-edit-repair>
+
+          <div class="table-responsive rounded-3">
+            <table id="add-row" class="display table table-striped table-head-bg-primary">
+              <thead class="font">
+                <tr>
+                  <th>Tên thiết bị</th>
+                  <th>Tình trạng lỗi</th>
+                  <th>Tên khách hàng</th>
+                  <th>Ngày nhận máy</th>
+                  <th>Trạng thái</th>
+                  <th>Chức năng nè</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Tên thiết bị</th>
+                  <th>Tình trạng lỗi</th>
+                  <th>Tên khách hàng</th>
+                  <th>Ngày nhận máy</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </tfoot>
+              <tbody *ngIf="repair$ | async as repair">
+                <tr *ngFor="let repairList of repair$ | async as repair" class="rounded-3">
+
+                  <td><a href="/admin/sua-chua/chi-tiet-sua-chua">{{repairList.deviceName}}</a></td>
+
+                  <td>{{repairList.errorCondition}}</td>
+                  <td>{{repairList.customer.fullName}}</td>
+                  <td>{{repairList.creationDate | date: 'dd-MM-yyy | HHg:mmp'}}</td>
+                  <td>
+                    <button class="btn-cus btn"
+                      [ngClass]="{'btn-warning': repairList.status === 'PROGRESS' ? 'Đang sửa' : repairList.status, 'btn-success': repairList.status === 'COMPLETED' ? 'ĐÃ XONG' : repairList.status}"
+                      (click)="repairList.status === 'PROGRESS' && changeStatusToCompleted(repairList)">
+                      {{ repairList.status === 'PROGRESS' ? 'ĐANG SỬA' : repairList.status }}
+                    </button>
+                  </td>
+                  <td>
+                    <div class="form-button-action">
+                      <a type="button" data-bs-toggle="tooltip" title="Xem chi tiết"
+                        href="/admin/sua-chua/chi-tiet-sua-chua" class=" btn btn-link btn-primary"
+                        data-original-title="Detail">
+                        <i class="fas fa-file-import h5"></i>
+                      </a>
+                      <a type="button" data-bs-toggle="tooltip" title="Sửa phiếu" class="btn btn-link btn-warning"
+                        data-original-title="Edit Task" data-bs-toggle="modal" data-bs-target="#editRowModal"
+                        (click)="openEditModal(repairList.repairId)">
+                        <!-- <i class="fa fa-edit"></i> -->
+                        <i class="fas fa-edit h5"></i>
+                      </a>
+                      <a type="button" data-bs-toggle="tooltip" title="Xóa phiếu" class="btn btn-link btn-danger"
+                        data-original-title="Remove">
+                        <i class="fas fa-trash h5"></i>
+                      </a>
+
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>

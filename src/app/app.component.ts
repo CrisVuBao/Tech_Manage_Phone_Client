@@ -11,15 +11,23 @@ import { FooterComponent } from "./core/components/footer/footer.component";
     styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit{
-  public loading = true;
+  isLoading = false;
+  progressValue = 0;
+
   constructor() {
 
   }
 
   ngOnInit():void {
-    setTimeout(() => {
-      this.loading = false;
-    }, 1500);
+    this.isLoading = true;
+    this.progressValue = 100;
+    const interval = setInterval(() => {
+      this.progressValue += 10; // Tăng giá trị mỗi lần
+      if (this.progressValue >= 100) {
+        clearInterval(interval); // Dừng setInterval khi đạt 100
+        this.isLoading = false;  // Tắt thanh tiến trình
+      }
+    }, 100);
   }
 
 }

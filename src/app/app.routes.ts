@@ -8,6 +8,7 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
+import { RepairDetailComponent } from './pages/repair-detail/repair-detail.component';
 
 export const routes: Routes = [
 
@@ -32,6 +33,10 @@ export const routes: Routes = [
         {
           path: 'admin/sua-chua',
           component: RepairComponent
+        },
+        {
+          path: 'admin/sua-chua/chi-tiet-sua-chua',
+          component: RepairDetailComponent
         },
         {
           path: 'trang-chu-khach-hang',

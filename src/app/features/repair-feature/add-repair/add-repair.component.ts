@@ -29,7 +29,7 @@ export class AddRepairComponent{
       isDelete: false,
       customerId: 0,
       status: "", // Received: Đã nhận, InProgress: Đang sửa, Completed: Đã xong
-      customer: { customerId: 0, name: "", phoneNumber: "" }
+      customer: { customerId: 0, fullName: "", phoneNumber: "" }
     }
   }
 

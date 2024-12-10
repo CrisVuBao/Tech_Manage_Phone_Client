@@ -20,6 +20,12 @@ import { AuthModule } from './pages/auth/auth.module';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatProgressBarModule} from '@angular/material/progress-bar'
+import { HomePageModule } from './pages/home-page/home-page.module';
+import { CustomerManageComponent } from './pages/manage-pages/customer-manage/customer-manage.component';
+import { RepairDetailComponent } from './pages/repair-detail/repair-detail.component';
+
 
 @NgModule({
     declarations: [
@@ -33,7 +39,9 @@ import { CustomerPageComponent } from './pages/customer-page/customer-page.compo
         SidebarComponent,
         AuthLayoutComponent,
         DashboardLayoutComponent,
-        CustomerPageComponent
+        CustomerPageComponent,
+        CustomerManageComponent,
+        RepairDetailComponent
 
     ],
     imports: [
@@ -44,10 +52,12 @@ import { CustomerPageComponent } from './pages/customer-page/customer-page.compo
         HttpClientModule,
         AuthModule,
         RouterModule.forRoot([]),
+        HomePageModule,
         LoadingBarRouterModule,
-        LoadingBarModule
+        LoadingBarModule,
+        MatProgressBarModule,
     ],
-    providers: [PipeStatus],
+    providers: [PipeStatus, provideAnimationsAsync()],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
