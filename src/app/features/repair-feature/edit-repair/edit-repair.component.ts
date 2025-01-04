@@ -5,6 +5,7 @@ import { Repair } from '../../../shared/models/repair.model';
 import { RepairService } from '../../../core/services/repair.service';
 import { RepairComponent } from '../../../pages/repair/repair.component';
 import Swal from 'sweetalert2';
+import { CreateRepair } from '../../../shared/models/createRepair.model';
 
 @Component({
   selector: 'app-edit-repair',
@@ -17,7 +18,7 @@ export class EditRepairComponent implements OnInit {
   repair?: Repair;
 
   constructor(private router: Router, private repairService: RepairService) {
-    
+
   }
   ngOnInit(): void {
   }
@@ -26,7 +27,7 @@ export class EditRepairComponent implements OnInit {
     this.router.navigate(['/sua-chua']);
   }
 
-  openEditModel(repairId: number) { 
+  openEditModel(repairId: number) {
     this.repairId = repairId;
 
     this.repairService.getRepairById(this.repairId).subscribe((data) => {
@@ -37,7 +38,7 @@ export class EditRepairComponent implements OnInit {
 
   onFormSubmit(): void {
     if(this.repairId && this.repair) {
-      this.repairService.updateRepairStatus(this.repairId, this.repair)
+      this.repairService.updateRepair(this.repairId, this.repair)
       .subscribe({
         next: (res) => {
           // Khi submit thành công

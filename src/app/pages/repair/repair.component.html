@@ -62,24 +62,26 @@
               </tfoot>
               <tbody *ngIf="repair$ | async as repair">
                 <tr *ngFor="let repairList of repair$ | async as repair" class="rounded-3">
-
-                  <td><a href="/admin/sua-chua/chi-tiet-sua-chua">{{repairList.deviceName}}</a></td>
-
+                  <td><a href="/admin/sua-chua/chi-tiet-sua-chua/{{repairList.repairId}}">{{repairList.deviceName}}</a>
+                  </td>
                   <td>{{repairList.errorCondition}}</td>
                   <td>{{repairList.customer.fullName}}</td>
                   <td>{{repairList.creationDate | date: 'dd-MM-yyy | HHg:mmp'}}</td>
                   <td>
+
+                    <!--Nút chuyển trạng thái  -->
                     <button class="btn-cus btn"
-                      [ngClass]="{'btn-warning': repairList.status === 'PROGRESS' ? 'Đang sửa' : repairList.status, 'btn-success': repairList.status === 'COMPLETED' ? 'ĐÃ XONG' : repairList.status}"
+                      [ngClass]="{  'btn-warning': repairList.status === 'PROGRESS','btn-success': repairList.status === 'COMPLETED'}"
                       (click)="repairList.status === 'PROGRESS' && changeStatusToCompleted(repairList)">
-                      {{ repairList.status === 'PROGRESS' ? 'ĐANG SỬA' : repairList.status }}
+                      {{ repairList.status === 'PROGRESS' ? 'ĐANG SỬA' : repairList.status || repairList.status ===
+                      'COMPLETED' ? 'ĐÃ SỬA XONG' : repairList.status }}
                     </button>
                   </td>
                   <td>
                     <div class="form-button-action">
                       <a type="button" data-bs-toggle="tooltip" title="Xem chi tiết"
-                        href="/admin/sua-chua/chi-tiet-sua-chua" class=" btn btn-link btn-primary"
-                        data-original-title="Detail">
+                        href="/admin/sua-chua/chi-tiet-sua-chua/{{repairList.repairId}}"
+                        class=" btn btn-link btn-primary" data-original-title="Detail">
                         <i class="fas fa-file-import h5"></i>
                       </a>
                       <a type="button" data-bs-toggle="tooltip" title="Sửa phiếu" class="btn btn-link btn-warning"

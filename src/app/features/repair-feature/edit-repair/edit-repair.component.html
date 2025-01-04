@@ -1,9 +1,9 @@
-<div class="modal fade " id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="editRowModal" tabindex="-1" role="dialog" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content border-cus">
       <div class="modal-header border-0">
         <h5 class="modal-title">
-          <span class="color-title fw-mediumbold ">Sửa phiếu</span>
+          <span class="color-title color-title-pri fw-mediumbold"> Sửa phiếu</span>
           <!-- <span class="fw-light"> Sửa </span> -->
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -11,104 +11,132 @@
       </div>
       <div class="modal-body">
         <h6 class="">
-          Tạo phiếu sửa chữa
+          Chỉnh sửa phiếu
         </h6>
         <form>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Tên Thiết Bị</h6>
-                <input id="deviceName" type="text" class="form-control" placeholder="Vd: Samsung S23" name="deviceName"
-                  [value]="repair?.deviceName" />
-              </div>
-              <input id="repairId" type="text" class="form-control" placeholder="Vd:ID" name="repairId"
-                [value]="repairId" />
-            </div>
-            <div class="col-sm-12">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Tình trạng lỗi</h6>
-                <input id="addPosition" type="text" class="form-control" placeholder="Vd: hỏng màn"
-                  name="errorCondition" [value]="repair?.errorCondition" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Hình khi nhận máy</h6>
-                <input id="imageUrl" type="text" class="form-control" placeholder="hình ảnh" name="imageUrl"
-                  [value]="repair?.imageUrl" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Thời gian nhận</h6>
-                <input class="input-date" type="datetime" id="datetime-input" name="birthdaytime"
-                  [value]="repair?.creationDate |date: 'dd-MM-yyy | HHg:mmp'">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Tên khách hàng</h6>
-                <input id="customerName" type="text" class="form-control" placeholder="Vd: Nguyễn A" name="customerName"
-                  [value]="repair?.customer?.fullName" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group form-group-default">
-                <h6 class="fw-extrabold">Số điện thoại</h6>
-                <input id="phoneNumber" type="text" class="form-control" placeholder="Vd: 0368686868" name="phoneNumber"
-                  [value]="repair?.customer?.phoneNumber" />
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label class="ps-2 fw-mediumbold">Cho mượn máy</label><br />
-              <div class="d-flex">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
-                    [value]="true" [checked]="repair?.lend === true" />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Có
-                  </label>
+          <div class="modal-custom">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Tên Thiết Bị</h6>
+                  <input id="addName" type="text" class="form-control" placeholder="Vd: Samsung S23" name="deviceName"
+                    [value]="repair?.deviceName" />
                 </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                    [value]="false" [checked]="repair?.lend === false" />
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Không
-                  </label>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Tên khách hàng</h6>
+                  <input id="addOffice" type="text" class="form-control" placeholder="Vd: Nguyễn A" name="fullName"
+                    [value]="repair?.customer?.fullName" />
                 </div>
               </div>
             </div>
-
-            <div class="col-md-6">
-              <h6 class="fw-extrabold">Thành tiền</h6>
-              <div class="input-group mb-3">
-                <!-- <span class="input-group-text">VNĐ</span> -->
-                <input type="text" id="currency-input" class="form-control no-spinner"
-                  aria-label="Amount (to the nearest dollar)" name="totalAmount"
-                  [value]="repair?.totalAmount | number:'1.0-0'" />
-                <span class="input-group-text">VNĐ</span>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Tình trạng lỗi</h6>
+                  <input id="addPosition" type="text" class="form-control" placeholder="Vd: hỏng màn"
+                    name="errorCondition" [value]="repair?.errorCondition" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Số điện thoại</h6>
+                  <input id="addOffice" type="text" class="form-control" placeholder="Vd: 0368686868" name="phoneNumber"
+                    [value]="repair?.customer?.phoneNumber" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Hình khi nhận máy</h6>
+                  <button type="button" class="btn btn-light active">Chọn hình ảnh</button>
+                  <ng-container>
+                    <div>
+                      <img height="100" class="my-2" />
+                      <input id="addOffice" type="text" class="form-control" name="imageUrl"
+                        [value]="repair?.imageUrl" />
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Địa chỉ</h6>
+                  <input id="addOffice" type="text" class="form-control" placeholder="Vd: Hồ Chí Minh"
+                    name="customerName" [value]="repair?.customer?.address" />
+                </div>
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Thời gian nhận</h6>
+                  <input class="input-date" type="datetime" id="datetime-input" name="birthdaytime"
+                    [value]="repair?.creationDate  | date:'dd-MM-yyy | HHg:mmp'">
+                </div>
+                <div class="radio-custom">
+                  <label class="ps-2 fw-mediumbold">Cho mượn máy</label><br />
+                  <div class="d-flex">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        [value]="true" [checked]="repair?.lend === true" />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Có
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        [value]="false" [checked]="repair?.lend === false" />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Không
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <h6 class="fw-extrabold">Thành tiền</h6>
+                <div class="input-group mb-3">
+                  <!-- <span class="input-group-text">VNĐ</span> -->
+                  <input type="text" id="moneyInput" class="form-control no-spinner"
+                    aria-label="Amount (to the nearest dollar)" name="totalAmount" [value]="repair?.totalAmount" />
+                  <span class="input-group-text">VNĐ</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-12">
               <div class="form-group form-group-default">
                 <h6 class="fw-extrabold">Ghi chú thêm</h6>
-                <input id="addName" type="text" class="form-control" placeholder="Vd: có sim" name="deviceName" />
+                <input id="addName" type="text" class="form-control" placeholder="Vd: có sim" name="note"
+                  [value]="repair?.note" />
               </div>
             </div>
           </div>
           <div class="modal-footer border-0">
-            <button type="submit" id="addRowButton" class="btn btn-warning" (click)="onFormSubmit()">
-              Sửa
+            <button type="submit" id="addRowButton" class="btn btn-primary">
+              Thêm
             </button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModalAndNavigate()">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
               Hủy
             </button>
           </div>
         </form>
       </div>
+
     </div>
   </div>
 </div>
+
+<script>
+  function formatNumber(input) {
+    let value = input.value;
+    value = value.replace(/\D/g, ''); // Loại bỏ các ký tự không phải số
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); // Thêm dấu chấm vào mỗi 3 chữ số
+    input.value = value;
+  }
+
+  document.getElementById('moneyInput').addEventListener('input', function () {
+    formatNumber(this);
+  });
+</script>
 
 <!-- <script>
     const now = new Date();

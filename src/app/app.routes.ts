@@ -35,7 +35,7 @@ export const routes: Routes = [
           component: RepairComponent
         },
         {
-          path: 'admin/sua-chua/chi-tiet-sua-chua',
+          path: 'admin/sua-chua/chi-tiet-sua-chua/:id',
           component: RepairDetailComponent
         },
         {

@@ -26,8 +26,15 @@
               <div class="col-md-6">
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Tên khách hàng</h6>
-                  <input id="addOffice" type="text" class="form-control" placeholder="Vd: Nguyễn A" name="customerName"
-                    [(ngModel)]="model.customer.fullName" />
+                  <input id="addOffice" type="text" class="form-control" list="datalistOptions" id="customerDataList"
+                    placeholder="Vd: Nguyễn A" name="fullName" [(ngModel)]="model.fullName" />
+                  <datalist id="datalistOptions">
+                    <option value="San Francisco">
+                    <option value="New York">
+                    <option value="Seattle">
+                    <option value="Los Angeles">
+                    <option value="Chicago">
+                  </datalist>
                 </div>
               </div>
             </div>
@@ -43,7 +50,7 @@
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Số điện thoại</h6>
                   <input id="addOffice" type="text" class="form-control" placeholder="Vd: 0368686868" name="phoneNumber"
-                    [(ngModel)]="model.customer.phoneNumber" />
+                    [(ngModel)]="model.phoneNumber" />
                 </div>
               </div>
               <div class="col-md-6">
@@ -53,6 +60,8 @@
                   <ng-container>
                     <div>
                       <img height="100" class="my-2" />
+                      <input id="addOffice" type="text" class="form-control" name="phoneNumber"
+                        [(ngModel)]="model.imageUrl" />
                     </div>
                   </ng-container>
                 </div>
@@ -61,7 +70,7 @@
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Địa chỉ</h6>
                   <input id="addOffice" type="text" class="form-control" placeholder="Vd: Hồ Chí Minh"
-                    name="customerName" [(ngModel)]="model.customer.fullName" />
+                    name="customerName" [(ngModel)]="model.address" />
                 </div>
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Thời gian nhận</h6>

@@ -1,3 +1,8 @@
+.input-date {
+    border:  #e5e5e5;
+    border-radius: 5px;
+}
+
 .border-cus {
     border: solid #FABC3F !important;
 }
@@ -5,3 +10,9 @@
 .color-title {
     color: #FABC3F;
 }
+
+.input-date {
+  border: #e5e5e5;
+  border-radius: 5px;
+}
+

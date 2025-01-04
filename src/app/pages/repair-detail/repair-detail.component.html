@@ -38,7 +38,7 @@
             <div class="row">
               <div class="col-md-6 col-lg-4">
                 <div class="form-group">
-                  <label class="form-label">Image Check</label>
+                  <label class="form-label">Hình ảnh thiết bị</label>
                   <div class="row">
                     <div class="col-6 col-sm-4">
                       <label class="imagecheck mb-4">
@@ -51,42 +51,54 @@
               </div>
               <div class="col-md-6 col-lg-4">
                 <div class="form-group form-inline">
-                  <label for="inlineinput" class="col-md-3 col-form-label">Inline Input</label>
-                  <div class="col-md-9 p-0">
-                    <input type="text" class="form-control input-full" id="inlineinput" placeholder="Enter Input" />
+                  <label for="inlineinput" class="col-md-3 col-form-label">Tên thiết bị</label>
+                  <!-- <div class="col-md-9 p-0"> -->
+                  <input class="form-control" type="text" value="{{repair?.deviceName}}" aria-label="Tên thiết bị">
+                  <!-- </div> -->
+                </div>
+                <div class="form-group has-error has-feedback form-inline">
+                  <label for="inlineinput" for="errorInput" class="col-md-3 col-form-label">Tình trạng lỗi</label>
+                  <input type="text" id="errorInput" value="{{repair?.errorCondition}}" class="form-control" />
+                </div>
+
+                <div class="radio-custom">
+                  <label class="ps-2 fw-mediumbold">Cho mượn máy</label><br />
+                  <div class="d-flex">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        [value]="true" [checked]="repair?.lend === true" />
+                      <label class="form-check-label" for="flexRadioDefault1">
+                        Có
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        [value]="false" [checked]="repair?.lend === false" />
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Không
+                      </label>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group has-success">
-                  <label for="successInput">Success Input</label>
-                  <input type="text" id="successInput" value="Success" class="form-control" />
+                <div class="form-group form-group-default">
+                  <h6 class="fw-extrabold">Thời gian nhận</h6>
+                  <input class="input-date" type="datetime" id="datetime-input" name="birthdaytime"
+                    [value]="repair?.creationDate  | date:'dd-MM-yyy | HHg:mmp'">
                 </div>
-                <div class="form-group has-error has-feedback">
-                  <label for="errorInput">Error Input</label>
-                  <input type="text" id="errorInput" value="Error" class="form-control" />
-                  <small id="emailHelp" class="form-text text-muted">Please provide a valid informations.</small>
-                </div>
+
+
                 <div class="form-group">
                   <label for="disableinput">Disable Input</label>
                   <input type="text" class="form-control" id="disableinput" placeholder="Enter Input" disabled />
                 </div>
-                <div class="form-group">
-                  <label class="control-label"> Static </label>
-                  <p class="form-control-static">helloexample.com</p>
+                <div class="form-group has-success">
+                  <label for="successInput">Success Input</label>
+                  <input type="text" id="successInput" value="Success" class="form-control" readonly />
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlFile1">Example file input</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1" />
-                </div>
-                <div class="form-group">
-                  <label for="comment">Comment</label>
-                  <textarea class="form-control" id="comment" rows="5">
+                  <label for="comment">Note</label>
+                  <textarea class="form-control" id="comment" rows="5" value="{{repair?.note}}">
                     </textarea>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Agree with terms and conditions
-                  </label>
                 </div>
                 <label class="mb-3"><b>Form Group Default</b></label>
                 <div class="form-group form-group-default">
@@ -103,50 +115,35 @@
                     <option>5</option>
                   </select>
                 </div>
-                <label class="mt-3 mb-3"><b>Form Floating Label</b></label>
-
-                <div class="form-group">
-                  <label for="largeInput">Default Input</label>
-                  <input type="text" class="form-control form-control" id="defaultInput" placeholder="Default Input" />
-                </div>
-                <div class="form-group">
-                  <label for="defaultSelect">Default Select</label>
-                  <select class="form-select form-control" id="defaultSelect">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
               </div>
               <div class="col-md-6 col-lg-4">
-                <div class="form-group">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"></span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-                      aria-describedby="basic-addon1" />
-                  </div>
+                <div class="form-group form-inline">
+                  <label for="inlineinput" class="col-md-3 col-form-label">Tên khách hàng</label>
+                  <!-- <div class="col-md-9 p-0"> -->
+                  <input class="form-control" type="text" value="{{repair?.customer?.fullName}}"
+                    aria-label="Tên thiết bị">
+                  <!-- </div> -->
+                </div>
+                <div class="form-group form-inline">
+                  <label for="inlineinput" class="col-md-3 col-form-label">Số điện thoại</label>
+                  <!-- <div class="col-md-9 p-0"> -->
+                  <input class="form-control" type="text" value="{{repair?.customer?.phoneNumber}}"
+                    aria-label="Tên thiết bị">
+                  <!-- </div> -->
+                </div>
+                <div class="form-group form-inline">
+                  <label for="inlineinput" class="col-md-3 col-form-label">Address khách hàng</label>
+                  <!-- <div class="col-md-9 p-0"> -->
+                  <input class="form-control" type="text" value="{{repair?.customer?.address}}"
+                    aria-label="Tên thiết bị">
+                  <!-- </div> -->
                 </div>
                 <div class="form-group">
+                  <label for="inlineinput" class="col-md-3 col-form-label">Thành tiền</label>
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username"
-                      aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                    <span class="input-group-text" id="basic-addon2">example.com</span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="basic-url">Your vanity URL</label>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text">$</span>
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" />
-                    <span class="input-group-text">.00</span>
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+                      value="{{repair?.totalAmount}}" />
+                    <span class="input-group-text">VNĐ</span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -293,10 +290,6 @@
               </div>
 
             </div>
-          </div>
-          <div class="card-action">
-            <button class="btn btn-success">Submit</button>
-            <button class="btn btn-danger">Cancel</button>
           </div>
         </div>
       </div>

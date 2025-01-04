@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RepairService } from '../../../core/services/repair.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { CreateRepair } from '../../../shared/models/createRepair.model';
 
 @Component({
   selector: 'app-add-repair',
@@ -13,14 +14,13 @@ import { Router } from '@angular/router';
 })
 export class AddRepairComponent{
 
-  model: Repair;
+  model: CreateRepair;
 
   constructor(private repairService: RepairService, private router: Router) {
     this.model = {
       repairId: 0,
       deviceName: "",
       errorCondition: "",
-      currentStatus: "", // hiện trạng
       imageUrl: "",
       lend: false, // cho mượn máy
       creationDate: new Date(),
@@ -28,8 +28,11 @@ export class AddRepairComponent{
       note: "",
       isDelete: false,
       customerId: 0,
-      status: "", // Received: Đã nhận, InProgress: Đang sửa, Completed: Đã xong
-      customer: { customerId: 0, fullName: "", phoneNumber: "" }
+      status: "", // Received: Đã nhận, InProgress: Đang sửa, Completed: Đã xong,
+      address: "",
+      phoneNumber:"",
+      fullName: ""
+      // customer: { customerId: 0, fullName: "", phoneNumber: "", address: "" }
     }
   }
 

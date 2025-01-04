@@ -34,19 +34,39 @@ export class RepairComponent implements OnInit {
       text: "Bạn có muốn chuyển trạng thái ?",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#58d55c',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Đồng ý, complete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        repair.status = 'COMPLETED';
-        Swal.fire({
-            title: 'Thành công!',
-            text: 'Chuyển trạng thái thành công.',
-            icon: 'success',
-            confirmButtonText: 'OK',
-            customClass: {
-              confirmButton: 'btn btn-success'
+        this.repairService.updateStatusRepair(repair.repairId).subscribe(
+          {
+            next: (res) => {
+              console.log(res);
+              Swal.fire({
+                  title: 'Thành công!',
+                  text: 'Chuyển trạng thái thành công.',
+                  icon: 'success',
+                  confirmButtonText: 'OK',
+                  customClass: {
+                    confirmButton: 'btn btn-success'
+                  }
+                }
+              );
+              const currentScrollY = window.scrollY; // Lưu vị trí cuộn hiện tại
+              localStorage.setItem('scrollPosition', currentScrollY.toString()); // Lưu vào localStorage
+              window.location.reload();
+            },
+            error: (err) => {
+              Swal.fire({
+                title: 'Lỗi!',
+                text: 'Không thể chuyển trạng thái.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                customClass: {
+                  confirmButton: 'btn btn-danger'
+                }
+              });
             }
           }
         );
