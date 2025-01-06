@@ -25,6 +25,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar'
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { CustomerManageComponent } from './pages/manage-pages/customer-manage/customer-manage.component';
 import { RepairDetailComponent } from './pages/repair-detail/repair-detail.component';
+import { ImageSelectorComponent } from './core/components/image-selector/image-selector.component';
+import { ChatComponent } from './core/components/chat/chat.component';
+import { FlowerComponent } from './core/components/flower/flower.component';
 
 
 @NgModule({
@@ -41,7 +44,10 @@ import { RepairDetailComponent } from './pages/repair-detail/repair-detail.compo
         DashboardLayoutComponent,
         CustomerPageComponent,
         CustomerManageComponent,
-        RepairDetailComponent
+        RepairDetailComponent,
+        ImageSelectorComponent,
+        ChatComponent,
+        FlowerComponent
 
     ],
     imports: [

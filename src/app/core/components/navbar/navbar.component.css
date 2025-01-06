@@ -5,3 +5,27 @@
 .font-cus-auth {
   font-size: 15px !important;
 }
+
+.tree-cus {
+  position: fixed;
+  top: 35px;
+}
+
+.firework-cus {
+  position: fixed;
+  top: 55px;
+  right: 10px;
+
+  animation: sway 5s ease-in-out infinite; /* Tạo animation với thời gian 2 giây, lặp lại vô hạn */
+  transform-origin: center top; /* Điểm xoay là chính giữa phía trên */
+}
+
+/* Keyframes tạo hiệu ứng đung đưa */
+@keyframes sway {
+  25% {
+    transform: rotate(30deg); /* Nghiêng sang phải */
+  }
+  75% {
+    transform: rotate(-30deg); /* Nghiêng sang trái */
+  }
+}

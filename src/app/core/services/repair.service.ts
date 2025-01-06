@@ -24,6 +24,10 @@ export class RepairService {
         return this.http.get<Repair>(`${environment.apiBaseUrl}/api/GetRepairById/${id}`);
     }
 
+    getRepairByNumberPhone(phoneNumber: string) : Observable<Repair[]> {
+      return this.http.get<Repair[]>(`${environment.apiBaseUrl}/api/GetAllRepairByNumberPhone/${phoneNumber}`);
+    }
+
     addRepair(model: CreateRepair) : Observable<void> {
         return this.http.post<void>(`${environment.apiBaseUrl}/api/CreateRepair`,model)
     }
@@ -34,5 +38,9 @@ export class RepairService {
 
     updateStatusRepair(id:number): Observable<void> {
       return this.http.put<void>(`${environment.apiBaseUrl}/api/UpdateStatusRepair/${id}`, null);
+    }
+
+    deleteRepair(id: number): Observable<void> {
+        return this.http.delete<void>(`${environment.apiBaseUrl}/api/DeleteRepairById/${id}`);
     }
 }

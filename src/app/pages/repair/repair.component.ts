@@ -78,4 +78,28 @@ export class RepairComponent implements OnInit {
    // this.editRepairComponent.repairId = repairId; // @Input repairId, lấy repairId của com cha truyền vào con (là edit com)
     this.editRepairComponent.openEditModel(repairId);
   }
+
+  onDeleteRepair(id: number): void {
+    if(id) {
+      this.repairService.deleteRepair(id).subscribe({
+        next: (res) => {
+          // Khi submit thành công
+          Swal.fire({
+            title: 'Thành công!',
+            text: 'Đã xóa.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            customClass: {
+              confirmButton: 'btn btn-success'
+            }
+          });
+          const currentScrollY = window.scrollY; // Lưu vị trí cuộn hiện tại
+          localStorage.setItem('scrollPosition', currentScrollY.toString()); // Lưu vào localStorage
+          setTimeout(() => {
+            window.location.reload();
+          },1000)
+        }
+      })
+    }
+  }
 }

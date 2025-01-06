@@ -13,7 +13,7 @@
         <h6 class="">
           Chỉnh sửa phiếu
         </h6>
-        <form>
+        <form (ngSubmit)="onFormSubmit()">
           <div class="modal-custom">
             <div class="row">
               <div class="col-md-6">
@@ -111,8 +111,8 @@
             </div>
           </div>
           <div class="modal-footer border-0">
-            <button type="submit" id="addRowButton" class="btn btn-primary">
-              Thêm
+            <button type="submit" id="addRowButton" class="btn btn-warning">
+              Sửa
             </button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
               Hủy

@@ -15,6 +15,8 @@ import { CreateRepair } from '../../../shared/models/createRepair.model';
 export class AddRepairComponent{
 
   model: CreateRepair;
+  isImageSelectorVisible: boolean = false;
+  displayImageUrl = "";
 
   constructor(private repairService: RepairService, private router: Router) {
     this.model = {
@@ -56,5 +58,20 @@ export class AddRepairComponent{
           },1000)
         }
       })
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const fileNameSpan = document.getElementById('fileName') as HTMLElement;
+
+    if (input.files && input.files.length > 0) {
+      fileNameSpan.textContent = input.files[0].name; // Hiển thị tên file
+    } else {
+      fileNameSpan.textContent = 'Chưa chọn tệp'; // Khi không chọn file
+    }
+  }
+
+  openImageSelector(): void {
+    this.isImageSelectorVisible = true;
   }
 }

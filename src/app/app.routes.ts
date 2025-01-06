@@ -9,6 +9,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 import { RepairDetailComponent } from './pages/repair-detail/repair-detail.component';
+import { ChatComponent } from './core/components/chat/chat.component';
 
 export const routes: Routes = [
 
@@ -41,6 +42,9 @@ export const routes: Routes = [
         {
           path: 'trang-chu-khach-hang',
           component: CustomerPageComponent
+        },{
+          path: 'nhan-tin',
+          component: ChatComponent
         }
       ]
     },

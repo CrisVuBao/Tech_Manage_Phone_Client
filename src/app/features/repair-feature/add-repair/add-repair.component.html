@@ -56,12 +56,15 @@
               <div class="col-md-6">
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Hình khi nhận máy</h6>
-                  <button type="button" class="btn btn-light active">Chọn hình ảnh</button>
-                  <ng-container>
+                  <div class="mb-3">
+                    <input class="form-control  form-control-lg" type="file" id="formFileLg" name="imageUrl"
+                      [(ngModel)]="model.imageUrl" />
+                  </div>
+                  <ng-container *ngIf="model.imageUrl !== ''">
                     <div>
-                      <img height="100" class="my-2" />
-                      <input id="addOffice" type="text" class="form-control" name="phoneNumber"
-                        [(ngModel)]="model.imageUrl" />
+                      <img [src]="displayImageUrl" height="100" class="my-2">
+                      <input id="addOffice" type="text" class="form-control" name="imageUrl"
+                        [(ngModel)]="model.imageUrl" (change)="onFileSelected($event)" />
                     </div>
                   </ng-container>
                 </div>
@@ -132,6 +135,9 @@
     </div>
   </div>
 </div>
+<!-- <div class="images-container-modal" [ngClass]="{'d-block': isImageSelectorVisible, 'd-none': !isImageSelectorVisible}">
+  <app-image-selector></app-image-selector>
+</div> -->
 
 <script>
   function formatNumber(input) {

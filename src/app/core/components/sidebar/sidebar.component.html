@@ -30,6 +30,10 @@
             <i class="fas fa-users"></i>
             <p>Trang khách hàng</p>
           </a>
+          <a data-bs-toggle="collapse" href="#" class="collapsed" aria-expanded="false" [routerLink]="['nhan-tin']">
+            <i class="fab fa-facebook-messenger"></i>
+            <p>Nhắn tin</p>
+          </a>
         </li>
 
 
@@ -150,6 +154,12 @@
           </li>
         </ng-container>
       </ul>
+    </div>
+    <div class="button-music ms-5">
+      <button class="btn btn-primary" (click)="playBackgroundMusic()" *ngIf="!isMusicPlaying">Bật nhạc nền <i
+          class="fas fa-play"></i></button>
+      <button class="btn btn-primary" (click)="onTurnOffMusic()" *ngIf="isMusicPlaying">Tắt nhạc nền <i
+          class="fas fa-pause"></i></button>
     </div>
   </div>
 </div>

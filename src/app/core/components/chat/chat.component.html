@@ -1,0 +1,57 @@
+<div class="repair-layout container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold">Sửa chữa vi vu</h3>
+      <ul class="breadcrumbs">
+        <li class="nav-home">
+          <a href="#" title="home">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#" [routerLink]="['/sua-chua']">Làm việc</a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#" [routerLink]="['/sua-chua']">Sửa chữa</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex align-items-center">
+            <h4 class="card-title">Nhắn với shop</h4>
+            <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal" data-bs-target="#addRowModal">
+              <i class="fa fa-plus"></i>
+              Nhắn
+            </button>
+
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="">
+            <h2>Chat</h2>
+            <div *ngFor="let msg of messages">
+              <strong>{{ msg.senderId }}:</strong> {{ msg.content }}
+            </div>
+
+            <div>
+              <input class="input-group-text" [(ngModel)]="receiverId" placeholder="Nhập Receiver ID" />
+            </div>
+            <div>
+              <textarea class="input-group-text" [(ngModel)]="messageContent" placeholder="Nhập tin nhắn"></textarea>
+            </div>
+            <button class="btn btn-primary" (click)="sendMessage()">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
