@@ -41,7 +41,8 @@
               "src/assets/css/kaiadmin.min.css",
               "src/assets/css/fonts.min.css",
               "src/assets/css/demo.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",

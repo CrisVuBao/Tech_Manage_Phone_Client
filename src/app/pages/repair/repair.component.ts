@@ -9,6 +9,7 @@ import { PipeStatus } from '../../core/pipes/pipe-status/pipe-status.component';
 import { EditRepairComponent } from "../../features/repair-feature/edit-repair/edit-repair.component";
 import Swal from 'sweetalert2';
 import { routes } from '../../app.routes';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-repair',

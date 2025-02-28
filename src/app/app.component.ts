@@ -4,6 +4,7 @@ import { NavbarComponent } from "./core/components/navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from "./core/components/sidebar/sidebar.component";
 import { FooterComponent } from "./core/components/footer/footer.component";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit{
   private audio: HTMLAudioElement;
   private isAudioStarted: boolean = false;
 
-  constructor() {
+  constructor(private spinner: NgxSpinnerService) {
     this.audio = new Audio('../assets/audio/world-asian-carnival-china-traditional-music-travel.mp3');
     this.audio.loop = true; // Lặp lại âm thanh
     this.audio.volume = 0.5; // Giảm âm lượng

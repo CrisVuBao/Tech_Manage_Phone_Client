@@ -5,7 +5,7 @@ import { Repair } from '../../../shared/models/repair.model';
 import { RepairService } from '../../../core/services/repair.service';
 import { RepairComponent } from '../../../pages/repair/repair.component';
 import Swal from 'sweetalert2';
-import { CreateRepair } from '../../../shared/models/createRepair.model';
+import { CreateRepair } from '../../../shared/models/create-repair.model';
 
 @Component({
   selector: 'app-edit-repair',

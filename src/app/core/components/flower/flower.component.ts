@@ -11,14 +11,14 @@ export class FlowerComponent implements OnInit {
   private petals: any[] = []; // Danh sách cánh hoa
   private images: HTMLImageElement[] = []; // Danh sách hình ảnh hoa
   private petalCreationInterval: any; // Biến lưu setInterval
-  private spawnInterval = 100; // Tần suất tạo hoa (ms)
+  private spawnInterval = 800; // Tần suất tạo hoa (ms)
 
   ngOnInit(): void {
     this.loadImages(); // Tải hình ảnh hoa
     this.setupCanvas(); // Thiết lập canvas
     this.startSpawningPetals(); // Bắt đầu tạo hoa
     this.animate(); // Bắt đầu hiệu ứng
-    this.stopFallingAfterDuration(20000); // Dừng tạo hoa sau 10 giây
+    // this.stopFallingAfterDuration(20000); // Dừng tạo hoa sau 10 giây
   }
 
   // Tải hình ảnh hoa

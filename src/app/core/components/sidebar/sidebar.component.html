@@ -6,6 +6,9 @@
       <a href="index.html" class="logo">
         <!-- <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" /> -->
         <div class="logo-cus logo-font">ADMIN</div>
+        <div class="new-year-icon">
+          <img src="../../../../assets/icon/happy-new-year (1).png" alt="happy new year" width="80" />
+        </div>
       </a>
       <div class="nav-toggle">
         <button class="btn btn-toggle toggle-sidebar" title="Toggle Sidebar">
@@ -32,7 +35,7 @@
           </a>
           <a data-bs-toggle="collapse" href="#" class="collapsed" aria-expanded="false" [routerLink]="['nhan-tin']">
             <i class="fab fa-facebook-messenger"></i>
-            <p>Nhắn tin</p>
+            <p>Nhắn tin test</p>
           </a>
         </li>
 
@@ -57,6 +60,18 @@
               <i class="fa fa-ellipsis-h"></i>
             </span>
             <h4 class="text-section">Danh mục</h4>
+          </li>
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#" class="collapsed" aria-expanded="false" [routerLink]="['admin/home']">
+              <i class="fas fa-robot"></i>
+              <p>AI Chat</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a data-bs-toggle="collapse" href="#" class="collapsed" aria-expanded="false" [routerLink]="['nhan-tin']">
+              <i class="fab fa-facebook-messenger"></i>
+              <p>Nhắn tin với khách hàng</p>
+            </a>
           </li>
           <li class="nav-item">
             <a data-bs-toggle="collapse" href="#forms">
@@ -84,12 +99,12 @@
             <div class="collapse" id="base">
               <ul class="nav nav-collapse">
                 <li>
-                  <a href="components/avatars.html">
+                  <a href="#" [routerLink]="['admin/quan-ly-khach-hang']">
                     <span class="sub-item">Quản lý khách hàng</span>
                   </a>
                 </li>
                 <li>
-                  <a href="components/buttons.html">
+                  <a href="#" [routerLink]="['admin/quan-ly-kho-hang']">
                     <span class="sub-item">Quản lý kho linh kiện</span>
                   </a>
                 </li>
@@ -101,6 +116,7 @@
               </ul>
             </div>
           </li>
+          <a href=""></a>
           <li class="nav-item">
             <a data-bs-toggle="collapse" href="#submenu">
               <i class="fas fa-bars"></i>

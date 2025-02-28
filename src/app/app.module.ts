@@ -1,6 +1,6 @@
-import {  CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { CommonModule, NgFor } from '@angular/common';
@@ -28,6 +28,8 @@ import { RepairDetailComponent } from './pages/repair-detail/repair-detail.compo
 import { ImageSelectorComponent } from './core/components/image-selector/image-selector.component';
 import { ChatComponent } from './core/components/chat/chat.component';
 import { FlowerComponent } from './core/components/flower/flower.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { InventoryManageComponent } from './pages/manage-pages/inventory-manage/inventory-manage.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { FlowerComponent } from './core/components/flower/flower.component';
         RepairDetailComponent,
         ImageSelectorComponent,
         ChatComponent,
-        FlowerComponent
+        FlowerComponent,
+        InventoryManageComponent
 
     ],
     imports: [
@@ -62,8 +65,10 @@ import { FlowerComponent } from './core/components/flower/flower.component';
         LoadingBarRouterModule,
         LoadingBarModule,
         MatProgressBarModule,
+        BrowserAnimationsModule,
+        NgxSpinnerModule
     ],
     providers: [PipeStatus, provideAnimationsAsync()],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

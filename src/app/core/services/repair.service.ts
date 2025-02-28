@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Repair } from "../../shared/models/repair.model";
 import { environment } from "../../../environments/environment.development";
-import { CreateRepair } from "../../shared/models/createRepair.model";
+import { CreateRepair } from "../../shared/models/create-repair.model";
 
 @Injectable ({
     providedIn: 'root'

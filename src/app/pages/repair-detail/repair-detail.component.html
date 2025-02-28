@@ -43,7 +43,10 @@
                     <div class="col-6 col-sm-4">
                       <label class="imagecheck mb-4">
                         <input name="imagecheck" type="checkbox" value="1" class="imagecheck-input" />
-                        <img src="../assets/img/mobilesoftwarrepairing.jpg" alt="title" height="200" />
+                        <div class="img-repair" *ngIf="repair?.imageUrl">
+                          <img [src]="repair?.imageUrl ? repair?.imageUrl:'../assets/img/mobilesoftwarrepairing.jpg'"
+                            alt="title" height="200" />
+                        </div>
                       </label>
                     </div>
                   </div>

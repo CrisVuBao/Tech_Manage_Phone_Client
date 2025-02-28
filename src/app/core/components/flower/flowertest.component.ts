@@ -18,7 +18,7 @@ export class FlowerComponent implements OnInit {
     this.setupCanvas();
     this.createPetals();
     this.animate();
-    this.stopFallingAfterDuration(10000); // Dừng sau 10 giây
+    this.stopFallingAfterDuration(20000); // Dừng sau 10 giây
   }
 
   // Tải hình ảnh hoa

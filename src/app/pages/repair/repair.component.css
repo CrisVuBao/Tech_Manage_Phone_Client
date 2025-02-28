@@ -10,3 +10,7 @@
   width: 100px !important;
   font-size: 12px;
 }
+  
+.thread-custom {
+  position: sticky !important;
+}

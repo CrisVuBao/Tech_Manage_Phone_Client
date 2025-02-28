@@ -10,6 +10,8 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { CustomerPageComponent } from './pages/customer-page/customer-page.component';
 import { RepairDetailComponent } from './pages/repair-detail/repair-detail.component';
 import { ChatComponent } from './core/components/chat/chat.component';
+import { CustomerManageComponent } from './pages/manage-pages/customer-manage/customer-manage.component';
+import { InventoryManageComponent } from './pages/manage-pages/inventory-manage/inventory-manage.component';
 
 export const routes: Routes = [
 
@@ -45,6 +47,13 @@ export const routes: Routes = [
         },{
           path: 'nhan-tin',
           component: ChatComponent
+        }, {
+          path: 'admin/quan-ly-khach-hang',
+          component: CustomerManageComponent
+        },
+        {
+          path: 'admin/quan-ly-kho-hang',
+          component: InventoryManageComponent
         }
       ]
     },

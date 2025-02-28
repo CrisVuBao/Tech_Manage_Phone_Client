@@ -41,8 +41,8 @@
 
           <div class="table-responsive rounded-3">
             <table id="add-row" class="display table table-striped table-head-bg-primary">
-              <thead class="font">
-                <tr>
+              <thead class="font thread-custom">
+                <tr class="thread-custom">
                   <th>Tên thiết bị</th>
                   <th>Tình trạng lỗi</th>
                   <th>Tên khách hàng</th>
@@ -98,6 +98,9 @@
                     </div>
                   </td>
                 </tr>
+              </tbody>
+              <tbody *ngIf="!repair$">
+                <ngx-spinner type="ball-clip-rotate-multiple" size="medium"></ngx-spinner>
               </tbody>
             </table>
           </div>

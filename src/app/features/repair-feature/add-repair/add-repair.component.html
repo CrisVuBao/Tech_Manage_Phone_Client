@@ -56,15 +56,11 @@
               <div class="col-md-6">
                 <div class="form-group form-group-default">
                   <h6 class="fw-extrabold">Hình khi nhận máy</h6>
-                  <div class="mb-3">
-                    <input class="form-control  form-control-lg" type="file" id="formFileLg" name="imageUrl"
-                      [(ngModel)]="model.imageUrl" />
-                  </div>
-                  <ng-container *ngIf="model.imageUrl !== ''">
+                  <input type="file" class="form-control" placeholder="chọn hình ảnh"
+                    (change)="onImageFileUpload($event)" />
+                  <ng-container>
                     <div>
-                      <img [src]="displayImageUrl" height="100" class="my-2">
-                      <input id="addOffice" type="text" class="form-control" name="imageUrl"
-                        [(ngModel)]="model.imageUrl" (change)="onFileSelected($event)" />
+                      <img [src]="displayImageUrl" height="100" class="my-2" />
                     </div>
                   </ng-container>
                 </div>

@@ -1,3 +1,4 @@
+// file login.component.ts
 import { Component } from '@angular/core';
 import { LoginRequest } from '../../../shared/models/login/login-request.model';
 import { AuthService } from '../../../core/services/auth.service';
@@ -15,6 +16,7 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private cookieService: CookieService, private router: Router) {
     this.model = {
+      id: 0,
       email: '',
       password: ''
     }
@@ -29,6 +31,7 @@ export class LoginComponent {
 
        // Set User
        this.authService.setUser({
+          id: res.id,
           fullName: res.fullName,
           email: res.email,
           roles: res.roles
